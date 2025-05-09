@@ -24,8 +24,7 @@ async function callAPIs() {
     console.log("Refreshing cache...");
     await axios.get('https://portal.proconnectlogistics.com/AI/api/data/cache/');
 
-    date = new Date();
-    last_refresh = date.toDateString() + " " + date.toTimeString();
+    last_refresh = getISTTimeString();
     console.log("Completed.");
   } catch (err) {
     console.error("Error:", err.message);
