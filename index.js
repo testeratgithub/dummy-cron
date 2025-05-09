@@ -1,6 +1,16 @@
 const axios = require('axios');
 const  http = require('http');
 
+
+function getISTTimeString(date = new Date()) {
+    // Convert to IST offset (UTC+5:30)
+    const istOffset = 5.5 * 60 * 60 * 1000; // 19800000 ms
+    const istDate = new Date(date.getTime() + istOffset);
+  
+    return istDate.toDateString() + ' ' + istDate.toTimeString();
+  }
+
+  
 let last_refresh;
 
 async function callAPIs() {
