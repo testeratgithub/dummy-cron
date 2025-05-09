@@ -1,0 +1,25 @@
+{
+  "name": "dummy-cron",
+  "version": "1.0.0",
+  "description": "hit api endpoints",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testeratgithub/dummy-cron.git"
+  },
+  "keywords": [
+    "cron"
+  ],
+  "author": "arun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/testeratgithub/dummy-cron/issues"
+  },
+  "homepage": "https://github.com/testeratgithub/dummy-cron#readme",
+  "dependencies": {
+    "axios": "^1.9.0"
+  }
+}
