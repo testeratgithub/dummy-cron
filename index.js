@@ -14,7 +14,8 @@ async function callAPIs() {
     console.log("Refreshing cache...");
     await axios.get('https://portal.proconnectlogistics.com/AI/api/data/cache/');
 
-    last_refresh = new Date();
+    date = new Date();
+    last_refresh = date.toDateString() + " " + date.toTimeString();
     console.log("Completed.");
   } catch (err) {
     console.error("Error:", err.message);
@@ -27,6 +28,10 @@ callAPIs(); // Run immediately on start
 
 //create a server object:
 http.createServer(function (req, res) {
-    res.write(last_refresh); //write a response to the client
-    res.end(); //end the response
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+  if (last_refresh) {
+    res.end(`Last refresh: ${last_refresh}`);
+  } else {
+    res.end("API call has not run yet.");
+  }
 }).listen(8080); //the server object listens on port 8080
